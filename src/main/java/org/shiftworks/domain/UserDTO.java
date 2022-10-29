@@ -8,5 +8,6 @@ public class UserDTO {
 	private String emp_id;
 	private String dept_id;
 	private String authority;
+	private String password;
 
 }

@@ -4,29 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.shiftworks.mapper.EmployeeMapper">
 
-	<resultMap type="org.shiftworks.domain.EmployeeVO" id="empMap">
-	
-		<id property="emp_id" column="emp_id"/>
-		<result property="emp_id" column="emp_id"/>
-		<result property="dept_id" column="dept_id"/>
-		<result property="name" column="name"/>
-		<result property="position" column="position"/>
-		<result property="mobile" column="mobile"/>
-		<result property="internal" column="internal"/>
-		<result property="email" column="email"/>
-		<collection property="userDTOList" resultMap="userMap"/>
-	
-	</resultMap>
-	
-		<resultMap type="org.shiftworks.domain.DepartmentVO" id="deptMap">
-	
-		<result property="dept_id" column="dept_id"/>
-		<result property="dept_id" column="dept_name"/>
-		<result property="authority" column="authority"/>
-	
-	</resultMap>
 
-	<select id="read" resultType="org.shiftworks.domain.EmployeeVO">
+	<select id="read" resultType="org.shiftworks.domain.UserDTO">
 	
 		select emp_id, emp.dept_id, authority, password from employee emp 
 			join department dept 
@@ -34,5 +13,8 @@
 			where emp_id = #{emp_id}
 	
 	</select>
+	
+	<!-- user login -->
+	<select id=""></select>
 
 </mapper>

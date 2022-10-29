@@ -1,9 +1,9 @@
 package org.shiftworks.mapper;
 
-import org.shiftworks.domain.EmployeeVO;
+import org.shiftworks.domain.UserDTO;
 
 public interface EmployeeMapper {
 	
-	public EmployeeVO read(String emp_id);
+	public UserDTO read(String emp_id);
 
 }

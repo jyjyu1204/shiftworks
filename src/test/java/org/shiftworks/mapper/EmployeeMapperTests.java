@@ -22,12 +22,10 @@ public class EmployeeMapperTests {
 
 	@Test
 	public void loginTest() {
+		UserDTO userDTO= empMapper.read("user1");
 		
-		EmployeeVO empVO = empMapper.read("user1");
-		
-		log.info(empVO);
+		log.info(userDTO);
 
-		
 		
 	}
 
