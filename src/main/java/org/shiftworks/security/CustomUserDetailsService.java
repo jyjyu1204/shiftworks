@@ -1,6 +1,6 @@
 package org.shiftworks.security;
 
-import org.shiftworks.mapper.EmployeeMapper;
+import org.shiftworks.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,7 +12,7 @@ import lombok.extern.log4j.Log4j;
 public class CustomUserDetailsService implements UserDetailsService {
 
 	@Autowired
-	private EmployeeMapper empMapper;
+	private UserMapper empMapper;
 	
 	@Override
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {

@@ -14,19 +14,20 @@ import lombok.extern.log4j.Log4j;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 @Log4j
-public class EmployeeMapperTests {
+public class UserMapperTests {
 	
 	@Autowired
-	private EmployeeMapper empMapper;
+	private UserMapper empMapper;
 	
 
 	@Test
-	public void loginTest() {
-		UserDTO userDTO= empMapper.read("user1");
+	public void userLoginTest() {
+		EmployeeVO empVO = new EmployeeVO();
+		empVO.setEmp_id("user1");
+		empVO.setPassword("shiftworks113");
 		
-		log.info(userDTO);
-
-		
+		empMapper.userLogin(empVO);
+		log.info(empVO);
 	}
 
 }
