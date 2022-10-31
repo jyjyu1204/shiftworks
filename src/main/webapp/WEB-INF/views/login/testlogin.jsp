@@ -43,6 +43,25 @@
 					</div>
 				</div>
 				
+				<div class="mail_wrap">
+				<div class="mail_name">이메일</div> 
+				<div class="mail_input_box">
+					<input class="mail_input" name="email">
+				</div>
+				<span class="final_mail_ck">이메일을 입력해주세요.</span>
+				<span class="mail_input_box_warn"></span>
+				<div class="mail_check_wrap">
+					<div class="mail_check_input_box" id="mail_check_input_box_false">
+						<input class="mail_check_input" disabled="disabled">
+					</div>
+					<div class="mail_check_button">
+						<span>인증번호 전송</span>
+					</div>
+					<div class="clearfix"></div>
+					<span id="mail_check_input_box_warn"></span>
+				</div>
+			</div>
+				
 				<c:if test="${result == 0 }">
 					<div class ="login_warn">사번 또는 비밀번호를 잘못 입력하셨습니다.</div>
 				</c:if>
