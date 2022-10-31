@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
 @RestController
-@RequestMapping("/login")
+@RequestMapping("/login/*")
+@AllArgsConstructor
 @Log4j
 public class MainPageController {
 	
@@ -36,7 +38,7 @@ public class MainPageController {
 //	}
 
 		
-	@PostMapping
+	@PostMapping("/main")
 	public String loginPOST(HttpServletRequest request, UserDTO userDTO, RedirectAttributes rttr) throws Exception{
 		
 		HttpSession session = request.getSession();
@@ -45,7 +47,7 @@ public class MainPageController {
 		if(empVO == null) {
 			int result = 0;
 			rttr.addFlashAttribute("result", result);
-			return "redirect:/login";
+			return "redirect:/";
 		}
 		session.setAttribute("user", empVO);
 		
