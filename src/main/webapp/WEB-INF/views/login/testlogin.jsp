@@ -42,7 +42,7 @@
 					</div>
 				</div>
 				
-				<div class="mail_wrap">
+	<!-- 			<div class="mail_wrap">
 				<div class="mail_name">이메일</div> 
 				<div class="mail_input_box">
 					<input class="mail_input" name="email">
@@ -59,7 +59,7 @@
 					<div class="clearfix"></div>
 					<span id="mail_check_input_box_warn"></span>
 				</div>
-			</div>
+			</div> -->
 				
 				<c:if test="${result == 0 }">
 					<div class ="login_warn">사번 또는 비밀번호를 잘못 입력하셨습니다.</div>
