@@ -1,6 +1,8 @@
 package org.shiftworks.security;
 
+import org.shiftworks.domain.EmployeeVO;
 import org.shiftworks.mapper.UserMapper;
+import org.shiftworks.security.domain.CustomUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,7 +21,11 @@ public class CustomUserDetailsService implements UserDetailsService {
 		
 		log.warn("Load User By UserName: " + userName);
 		
-		return null;
+		EmployeeVO vo = userMapper.read(userName);
+		
+		log.warn("queried by user mapper"+vo);
+		
+		return vo == null ? null : new CustomUser(vo);
 	}
 
 }
