@@ -8,7 +8,7 @@ import org.shiftworks.domain.UserDTO;
 
 public interface UserService {
 	
-	public int userLogin(UserDTO dto);//로그인
+	public EmployeeVO userLogin(UserDTO dto);//로그인
 	public void fixEmpId(String emp_id);//사번 저장
 	public String searchEmpId(EmployeeVO empVO);//사번찾기->인증번호를 입력하면 찾는거... 좀이상하니 다시 살필것)
 	public int resetEmpPw(String authNum);//비번 재설정(아니면 인증번호를 입력했을 때그냥 초기비번으로 돌아가는걸로)

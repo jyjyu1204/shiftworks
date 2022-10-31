@@ -5,7 +5,6 @@ import org.shiftworks.domain.UserDTO;
 
 public interface UserMapper {
 	
-	public UserDTO read(String emp_id);
-	public EmployeeVO userLogin(EmployeeVO empVO);
+	public EmployeeVO userLogin(UserDTO userDTO);
 
 }

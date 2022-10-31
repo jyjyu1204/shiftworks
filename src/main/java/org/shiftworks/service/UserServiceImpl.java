@@ -9,9 +9,9 @@ import org.shiftworks.domain.UserDTO;
 public class UserServiceImpl implements UserService{
 
 	@Override
-	public int userLogin(UserDTO dto) {
+	public EmployeeVO userLogin(UserDTO userDTO) {
 		// TODO Auto-generated method stub
-		return 0;
+		return null;
 	}
 
 	@Override

@@ -22,11 +22,13 @@ public class UserMapperTests {
 
 	@Test
 	public void userLoginTest() {
+		UserDTO userDTO = new UserDTO();
 		EmployeeVO empVO = new EmployeeVO();
-		empVO.setEmp_id("user1");
-		empVO.setPassword("shiftworks113");
+		userDTO.setEmp_id("user1");
+		userDTO.setPassword("shiftworks113");
 		
-		empMapper.userLogin(empVO);
+		
+		empVO = empMapper.userLogin(userDTO);
 		log.info(empVO);
 	}
 
