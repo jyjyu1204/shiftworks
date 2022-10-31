@@ -36,13 +36,13 @@ AuthenticationSuccessHandler {
 
 		if (roleNames.contains("admin")) {
 
-			response.sendRedirect("/login/admin");
+			response.sendRedirect("/login/testmain");
 			return;
 		}
 
 		if (roleNames.contains("user")) {
 
-			response.sendRedirect("/login/user");
+			response.sendRedirect("/login/testmain");
 			return;
 		}
 

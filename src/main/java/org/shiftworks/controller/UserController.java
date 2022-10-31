@@ -6,25 +6,25 @@ import javax.servlet.http.HttpSession;
 import org.shiftworks.domain.EmployeeVO;
 import org.shiftworks.domain.UserDTO;
 import org.shiftworks.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
 @RestController
 @RequestMapping("/login/*")
 @Log4j
 public class UserController {
-	
+	@Autowired
 	private UserService user;
 	
-	@GetMapping("testlogin")
-	public String loginGET() {
-		return null;
+	@GetMapping("/testlogin")
+	public void loginGET() {
+		log.info("로그인 페이지.................");
 	}
 		
 	@PostMapping("/testlogin")

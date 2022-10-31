@@ -12,7 +12,7 @@ import lombok.extern.log4j.Log4j;
 public class CustomUserDetailsService implements UserDetailsService {
 
 	@Autowired
-	private UserMapper empMapper;
+	private UserMapper userMapper;
 	
 	@Override
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {

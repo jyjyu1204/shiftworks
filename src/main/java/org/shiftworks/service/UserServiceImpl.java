@@ -5,6 +5,8 @@ import java.util.List;
 import org.shiftworks.domain.DepartmentVO;
 import org.shiftworks.domain.EmployeeVO;
 import org.shiftworks.domain.UserDTO;
+import org.shiftworks.mapper.UserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
@@ -15,11 +17,14 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 @Log4j
 public class UserServiceImpl implements UserService{
+	@Autowired
+	private UserMapper usermapper;
 
 	@Override
 	public EmployeeVO userLogin(UserDTO userDTO) {
 		
-		return null;
+		return usermapper.userLogin(userDTO);
+		
 	}
 
 	@Override
