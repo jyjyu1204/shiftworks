@@ -4,6 +4,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
@@ -11,6 +12,7 @@ import lombok.extern.log4j.Log4j;
 
 @RestController
 @Log4j
+@RequestMapping("/login")
 public class UserController {
 	
 
@@ -21,7 +23,7 @@ public class UserController {
 		model.addAttribute("msg", "Access Denied");
 	}
 	
-	@GetMapping("/LOG_userLogin")//customLogin
+	@GetMapping("/customLogin")//customLogin
 	public void loginInput(String error, String logout, Model model) {
 		log.info("error : "+error);
 		log.info("logout : "+logout);
@@ -35,7 +37,7 @@ public class UserController {
 		}
 	}
 	
-	@GetMapping("LOG_userLogout")
+	@GetMapping("customLogout")
 	public void logoutGET() {
 		
 		log.info("user log out.........."  );

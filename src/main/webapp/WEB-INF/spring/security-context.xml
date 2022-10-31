@@ -15,14 +15,14 @@
 	
 	<security:http>
 	
-		<security:intercept-url pattern="/login/main" access="permitAll"/>
-		<security:intercept-url pattern="/login/user" access="hasRole('USER')"/>
+		<security:intercept-url pattern="/login/customLogin" access="permitAll"/>
+<!-- 		<security:intercept-url pattern="/login/user" access="hasRole('USER')"/>
 		<security:intercept-url pattern="/login/admin" access="hasRole('ADMIN')"/>
-
+ -->
 		<!-- <security:form-login/> -->
-		<security:form-login login-page="/LOG_userLogin"/>
+		<security:form-login login-page="/login/customLogin"/>
 		
-		<security:logout logout-url="/LOG_userLogout" 
+		<security:logout logout-url="" 
 			invalidate-session="true"
 			delete-cookies="JSESSION_ID"/>
 	<!-- <security:access-denied-handler error-page="/accessError"/> -->
