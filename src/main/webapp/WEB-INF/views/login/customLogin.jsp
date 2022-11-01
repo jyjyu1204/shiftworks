@@ -25,12 +25,12 @@
 			<div class="login_wrap"> 
 				<div class="id_wrap">
 						<div class="id_input_box">
-						<input class="id_input" name="emp_id">
+						<input class="id_input" name="emp_id" value ="사번">
 					</div>
 				</div>
 				<div class="pw_wrap">
 					<div class="pw_input_box">
-						<input class="pw_iput" name="password">
+						<input class="pw_iput" name="password" value ="비밀번호">
 					</div>
 				</div>
 				
