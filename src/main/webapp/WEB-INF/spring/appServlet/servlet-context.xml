@@ -42,6 +42,7 @@
 
 	<!-- Web socket을 위한 핸들러 등록 -->
 	<websocket:handlers>
+<<<<<<< HEAD
 		<websocket:mapping handler="chattingHandler"
 			path="/messenger/echo" />
 		<!--Httpsession에 있는 값을 가로채서 WebSocketSession에 똑같이 넣어주는 역할 -->
@@ -49,11 +50,22 @@
 			<beans:bean
 				class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor" />
 		</websocket:handshake-interceptors>
+=======
+		<websocket:mapping handler="chatHandler" path="/messenger/chat"/>
+		<!-- Httpsession에 있는 값을 가로채서 WebSocketSession에 똑같이 넣어주는 역할 -->
+		 <websocket:handshake-interceptors>
+        	<beans:bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"/>
+        </websocket:handshake-interceptors>
+>>>>>>> refs/heads/develop
 		<websocket:sockjs></websocket:sockjs>
 	</websocket:handlers>
 
 	<!-- 핸들러 객체 생성 -->
+<<<<<<< HEAD
 	<beans:bean id="chattingHandler"
 		class="org.shiftworks.handler.ChattingHandler" />
+=======
+	<beans:bean id="chatHandler" class="org.shiftworks.handler.ChatHandler" />
+>>>>>>> refs/heads/develop
 
 </beans:beans>
