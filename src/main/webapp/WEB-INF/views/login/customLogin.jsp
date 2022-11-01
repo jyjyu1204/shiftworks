@@ -1,93 +1,64 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/includes/header.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ include file="/WEB-INF/views/includes/header.jsp"%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-
-<title>SB Admin 2 - Bootstrap Admin Theme</title>
-
-<!-- Bootstrap Core CSS -->
-<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- MetisMenu CSS -->
-<link href="/resources/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-
-<!-- Custom CSS -->
-<link href="/resources/dist/css/sb-admin-2.css" rel="stylesheet">
-
-<!-- Custom Fonts -->
-<link href="/resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+<link rel="stylesheet" href="/resources/css/login.css">
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<title>shiftworks login page</title>
 </head>
-
-<!-- jQuery -->
-<script src="/resources/vendor/jquery/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="/resources/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-<!-- Metis Menu Plugin JavaScript -->
-<script src="/resources/vendor/metisMenu/metisMenu.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/resources/dist/js/sb-admin-2.js"></script>
-
-<script>
-$(document).ready(function(){
-	$(".btn-success").on("click", function(e){
-	
-		e.preventDefault();
-	    
-		$("form").submit();
-	});
-});
-</script>
-
-<c:if test="${param.logout != null}">
-<script>
-$(document).ready(function(){
-	alert("로그아웃하였습니다.");
-});
-</script>
-</c:if>  
 <body>
-<div class="container">
-	<div class="row">
-		<div class="col-md-4 col-md-offset-4">
-			<div class="login-panel panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Please Sign In</h3>
-				</div>
-				<div class="panel-body">
-					<form role="form" method='post' action="/login">
-						<fieldset>
-							<div class="form-group">
-								<input class="form-control" placeholder="userid" name="username" type="text" autofocus>
-							</div>
-							<div class="form-group">
-								<input class="form-control" placeholder="Password" name="password" type="password" value="">
-							</div>
-							<div class="checkbox">
-								<label><input name="remember-me" type="checkbox">Remember Me</label>
-							</div>
-							<a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
-						</fieldset>						
-						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-					</form>
-				</div>
+<div class="wrapper">
+	
+	<div class="wrap">
+		<form id="login_form" method="post">
+			<div class="logo_wrap">
+				<span>Shift Works</span>
 			</div>
-		</div>
+			<div class="login_wrap"> 
+				<div class="id_wrap">
+						<div class="id_input_box">
+						<input class="id_input" name="emp_id">
+					</div>
+				</div>
+				<div class="pw_wrap">
+					<div class="pw_input_box">
+						<input class="pw_iput" name="password">
+					</div>
+				</div>
+				
+				<c:if test = "${result == 0 }">
+					<div class = "login_warn">사용자 ID 또는 비밀번호를 잘못 입력하셨습니다.</div>
+				</c:if>
+				
+				<div class="login_button_wrap">
+					<input type="button" class="login_button" value="Login">
+				</div>			
+			</div>
+		</form>
+		
 	</div>
+
 </div>
+
+<script>
+	/* 로그인 버튼 클릭 메서드 */
+	$(".login_button").click(function(){
+		
+		//alert("로그인 버튼 작동");
+		
+		/* 로그인 메서드 서버 요청 */
+		$("#login_form").attr("action", "/login/customLogin");
+		$("#login_form").submit();
+		
+	});
+</script>
 </body>
 </html>

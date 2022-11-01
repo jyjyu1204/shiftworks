@@ -22,12 +22,12 @@ public class UserController {
 	@Autowired
 	private UserService user;
 	
-	@GetMapping("/testlogin")
+	@GetMapping("/customLogin")
 	public void loginGET() {
 		log.info("로그인 페이지.................");
 	}
 		
-	@PostMapping("/testlogin")
+	@PostMapping("/customLogin")
 	public String loginPOST(HttpServletRequest request, UserDTO userDTO, RedirectAttributes rttr) throws Exception{
 		
 		HttpSession session = request.getSession();
@@ -36,11 +36,11 @@ public class UserController {
 		if(empVO == null) {
 			int result = 0;
 			rttr.addFlashAttribute("result", result);
-			return "redirect:/testlogin";
+			return "redirect:/customLogin";
 		}
 		session.setAttribute("user", empVO);
 		
-		return "redirect:/testmain";
+		return "redirect:/member";
 	}
 
 	
