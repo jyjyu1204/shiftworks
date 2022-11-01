@@ -30,7 +30,7 @@
 				</div>
 				<div class="pw_wrap">
 					<div class="pw_input_box">
-						<input class="pw_iput" name="password" value ="비밀번호">
+						<input class="pw_iput" type="password" name ="password" value ="비밀번호">
 					</div>
 				</div>
 				

@@ -24,8 +24,8 @@
 		<security:form-login 
 			 username-parameter="emp_id"
 			 password-parameter="password"
-			 
-			 login-page="/login/customLogin"/>
+			 login-page="/login/customLogin"
+			 default-target-url="/로그인 성공시 보내줄 페이지"/>
 		
 		<security:logout logout-url="" 
 			invalidate-session="true"

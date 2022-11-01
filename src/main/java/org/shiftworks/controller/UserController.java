@@ -22,14 +22,14 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class UserController {
 	@Autowired
-	private UserService user;
+	private UserService userService;
 	
 	
-	@GetMapping("/accessError")
-	public void  accessDenied(Authentication auth, Model model) {
-		log.info("access Denied: " + auth);
-		model.addAttribute("msg", "Access Denied");
-	}
+//	@GetMapping("/accessError")
+//	public void  accessDenied(Authentication auth, Model model) {
+//		log.info("access Denied: " + auth);
+//		model.addAttribute("msg", "Access Denied");
+//	}
 	
 	@GetMapping("/customLogin")//customLogin
 	public void loginInput(String error, String logout, Model model) {
@@ -49,7 +49,7 @@ public class UserController {
 	public String loginPOST(HttpServletRequest request, UserDTO userDTO, RedirectAttributes rttr) throws Exception{
 		
 		HttpSession session = request.getSession();
-		EmployeeVO empVO= user.userLogin(userDTO);
+		EmployeeVO empVO= userService.userLogin(userDTO);
 		
 		if(empVO == null) {
 			int result = 0;
