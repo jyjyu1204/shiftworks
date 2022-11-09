@@ -81,7 +81,7 @@ public class EmployeeController {
 	}
 	
 	
-	@GetMapping({"/get", "/modify"})
+	@GetMapping({"/get", "/modify","/retireeget"})
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public void get(@RequestParam("emp_id") String emp_id, @ModelAttribute("cri") AccountCriteria cri, Model model) {
 		log.info("get..............");

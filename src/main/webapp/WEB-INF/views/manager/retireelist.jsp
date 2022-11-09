@@ -107,7 +107,7 @@
 						<!--  end Pagination -->
 					</div>
 
-					<form id='actionForm' action="/manager/list" method='get'>
+					<form id='actionForm' action="/manager/retireelist" method='get'>
 						<input type='hidden' name='pageNum'
 							value='${pageMaker.cri.pageNum}'> <input type='hidden'
 							name='amount' value='${pageMaker.cri.amount}'> <input
@@ -168,7 +168,7 @@
 																					"href")
 																	+ "'>");
 													actionForm.attr("action",
-															"/manager/get");
+															"/manager/retireeget");
 													actionForm.submit();
 
 												});

@@ -57,15 +57,15 @@
 	<!--계정관리-->
 		<!--전체  list-->
 	<select id="getList" resultType="org.shiftworks.domain.EmployeeVO">
-			SELECT emp_id, dept_name, position, name, entry_date
+			SELECT emp_id, dept_name, position, name, entry_date, resignation_date
 			FROM employee e JOIN department d
 			ON e.dept_id = d.dept_id
-			WHERE resignation_date is null
+			WHERE resignation_date is null order by entry_date desc
 	</select>
 	
 		<!-- 퇴직자리스트 -->
 	<select id="getRetireeList" resultType="org.shiftworks.domain.EmployeeVO">
-			SELECT emp_id, dept_name, position, name, entry_date
+			SELECT emp_id, dept_name, position, name, entry_date, resignation_date
 			FROM employee e JOIN department d
 			ON e.dept_id = d.dept_id
 			WHERE resignation_date is not null			
@@ -77,7 +77,7 @@
 		<![CDATA[ 
 		select emp_id, dept_name, position, name, entry_date, resignation_date
 			from ( 
-				select /*+INDEX_DESC(employee employee_pk) */ 
+				select /*+INDEX_DESC(employee entry_index) */ 
 						rownum rn, emp_id, dept_name, position, name, entry_date, resignation_date
 					from employee e JOIN department d
 					on e.dept_id = d.dept_id
@@ -85,39 +85,42 @@
 		]]>
 	<include refid="criteria"/>
 	<![CDATA[
-			 rownum <= #{pageNum} * #{amount}
+			 rownum <= #{pageNum} * #{amount} and resignation_date is null
 		)where rn > (#{pageNum} -1) * #{amount}
-	]]>and resignation_date is null
+	]]>and resignation_date is null order by entry_date desc
 	</select>
 	
-		<!-- 퇴사자 검색 및 페이징 처리 -->
+	
+<!-- 퇴사자 검색 및 페이징 처리 -->
 	<select id="getListWithRetireePaging"
 		resultType="org.shiftworks.domain.EmployeeVO"> 
 		<![CDATA[ 
-		select emp_id, dept_name, position, name, resignation_date, entry_date
+		select emp_id, dept_name, position, name, entry_date, resignation_date
 			from ( 
-				select /*+INDEX_DESC(employee employee_pk) */ 
-						rownum rn, emp_id, dept_name, position, name, resignation_date, entry_date
+				select /*+INDEX_DESC(employee rsg_index) */ 
+						rownum rn, emp_id, dept_name, position, name, entry_date, resignation_date
 					from employee e JOIN department d
 					on e.dept_id = d.dept_id
 					where 
 		]]>
 	<include refid="criteria"/>
 	<![CDATA[
-			 rownum <= #{pageNum} * #{amount}
+			 rownum <= #{pageNum} * #{amount} and resignation_date is not null
 		)where rn > (#{pageNum} -1) * #{amount}
-	]]>and resignation_date is not null
+	]]>and resignation_date is not null order by resignation_date desc
 	</select>
 	
 		<!-- 총 계정 개수 -->
 	 <select id="getTotalCount" resultType="int">
-		select count(*) from employee e
+		select count(*) from employee e join department d on e.dept_id = d.dept_id
 		where <include refid="criteria"/> resignation_date is null
 	</select>
 	
 	<!--총 퇴사자 계정 개수  -->
 	<select id="getTotalRetireeCount" resultType="int">
-		select count(*) from employee e
+		select count(*) from employee e join department d on e.dept_id = d.dept_id
+			FROM employee e JOIN department d
+			ON e.dept_id = d.dept_id
 		where <include refid="criteria"/> resignation_date is not null
 	</select>
 		

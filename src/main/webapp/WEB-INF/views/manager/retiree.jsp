@@ -1,4 +1,4 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -124,7 +124,7 @@
 
 				$("button[data-oper='list']").on("click", function(e) {
 					operForm.find('#emp_id').remove();
-					operForm.attr("action", "/manager/list");
+					operForm.attr("action", "/manager/retireelist");
 					operForm.submit();
 
 				});
